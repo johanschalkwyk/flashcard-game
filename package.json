@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "console": "latest",
-    "readline":"latest",
+    "readline":"latest"
   }
 }

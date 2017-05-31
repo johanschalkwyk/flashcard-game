@@ -48,7 +48,7 @@ class FlashCardGame {
             console.log("you got it!!");
         } else {
             this.score.wrong++;
-            console.log("nahh!");
+            console.log("nahh you got it wrong!");
         }
         console.log(this.score);
     }
