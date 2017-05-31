@@ -11,10 +11,10 @@ class FlashCardGame {
     constructor() {
         this.cards = [];
         this.score = {correct: 0, wrong: 0 };
-        this.cardText = document.getElementById("cardHint");
-        this.submitButton = document.getElementById("cardSubmit");
-        this.rightText =  document.getElementById("scoreRight");
-        this.wrongText = document.getElementById("scoreWrong");
+        this.cardText = document.getElementById("card.hint");
+        this.submitButton = document.getElementById("card.submit");
+        this.rightText =  document.getElementById("score.right");
+        this.wrongText = document.getElementById("score.wrong");
         this.index = 0;
     }
 
@@ -41,7 +41,7 @@ class FlashCardGame {
     }
 
     checkAnswer() {
-        var guess = document.getElementById("cardAnswer").value;
+        var guess = document.getElementById("card.answer").value;
         var answer = this.cards[this.index].answer;
         if (guess === answer) {
             this.score.correct++;
