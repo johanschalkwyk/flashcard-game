@@ -1,4 +1,5 @@
 var console = require('console');
+var $ = require('jquery');
 
 class FlashCard {
     constructor(hint, answer) {
@@ -11,10 +12,6 @@ class FlashCardGame {
     constructor() {
         this.cards = [];
         this.score = {correct: 0, wrong: 0 };
-        this.cardText = document.getElementById("card.hint");
-        this.submitButton = document.getElementById("card.submit");
-        this.rightText =  document.getElementById("score.right");
-        this.wrongText = document.getElementById("score.wrong");
         this.index = 0;
     }
 
@@ -35,13 +32,13 @@ class FlashCardGame {
     cardUpdate() {
         var curCard = this.cards[this.index];
         console.log(curCard.hint);
-        this.cardText.innerHTML = curCard.hint;
-        this.rightText.innerHTML = this.score.correct.toString();
-        this.wrongText.innerHTML = this.score.wrong.toString();
+        $("#cardHint").text(curCard.hint);
+        $("#scoreRight").text(this.score.correct.toString());
+        $("#scoreWrong").text(this.score.wrong.toString());
     }
 
     checkAnswer() {
-        var guess = document.getElementById("card.answer").value;
+        var guess = $("#cardAnswer").val();
         var answer = this.cards[this.index].answer;
         if (guess === answer) {
             this.score.correct++;
@@ -59,8 +56,11 @@ game.addCard(new FlashCard("dog", "bark"));
 game.addCard(new FlashCard("cat", "meouw"));
 
 console.log(game.getCard(1));
-game.cardUpdate();
+$(document).ready(function() {
+  game.cardUpdate();
 
-game.submitButton.addEventListener('click', function() {
-    game.checkAnswer();
-    game.cardMove(1);} );
+  $("#cardSubmit").click(function() {
+      game.checkAnswer();
+      game.cardMove(1);
+  });
+});
