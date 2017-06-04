@@ -1,3 +1,4 @@
+// demo code for learning jquery
 var $ = require('jquery');
 var console = require('console');
 

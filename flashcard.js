@@ -32,13 +32,13 @@ class FlashCardGame {
     cardUpdate() {
         var curCard = this.cards[this.index];
         console.log(curCard.hint);
-        $("#cardHint").text(curCard.hint);
-        $("#scoreRight").text(this.score.correct.toString());
-        $("#scoreWrong").text(this.score.wrong.toString());
+        $("#card #hint").text(curCard.hint);
+        $("#score #right").text(this.score.correct.toString());
+        $("#score #wrong").text(this.score.wrong.toString());
     }
 
     checkAnswer() {
-        var guess = $("#cardAnswer").val();
+        var guess = $("#card #answer").val();
         var answer = this.cards[this.index].answer;
         if (guess === answer) {
             this.score.correct++;
@@ -59,7 +59,7 @@ console.log(game.getCard(1));
 $(document).ready(function() {
   game.cardUpdate();
 
-  $("#cardSubmit").click(function() {
+  $("#card #submit").click(function() {
       game.checkAnswer();
       game.cardMove(1);
   });
